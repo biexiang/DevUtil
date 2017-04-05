@@ -1,5 +1,6 @@
 {
     "name": "biexiang/dev-util",
+    "license ": "MIT",
     "description": "dev util package",
     "authors": [
         {

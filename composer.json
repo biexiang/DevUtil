@@ -1,0 +1,18 @@
+{
+    "name": "biexiang/dev-util",
+    "description": "dev util package",
+    "authors": [
+        {
+            "name": "biexiang",
+            "email": "1547013373@qq.com"
+        }
+    ],
+    "require": {
+        "php" : ">=5.3.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "DevUtil\\" : "src/"
+        }
+    }
+}

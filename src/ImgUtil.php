@@ -11,16 +11,23 @@ class ImgUtil{
             return "";
         }
         ob_start();
+        readfile($url);
         $img = ob_get_contents();
         ob_end_clean();
         if(self::makePath($path))
         {
-            $suffix = explode(".",$url)[1] ? explode(".",$url)[1] : "jpg";
-            $file = $path . "/" . time() . substr(uniqid(),7,5) . "." . $suffix;
-            $fd = fopen($file,"a");
+            $arrSuffix = explode(".",$url);
+            $suffix = end($arrSuffix);
+            $suffix = strlen($suffix) <= 4 ? $suffix : "jpg";
+            $file =  time() . substr(uniqid(),7,5) . "." . $suffix;
+            $path_to_file = $path . "/" . $file;
+            $fd = fopen($path_to_file,"a");
             fwrite($fd,$img);
             fclose($fd);
-            return $file;
+            return array(
+                "name"  =>  $file,
+                "path"  =>  $path_to_file
+            );
         }else{
             return false;
         }

@@ -17,7 +17,7 @@ class ImgUtil{
         {
             $suffix = explode(".",$url)[1] ? explode(".",$url)[1] : "jpg";
             $file = $path . "/" . time() . substr(uniqid(),7,5) . "." . $suffix;
-            $fd = fopen($file,"b");
+            $fd = fopen($file,"a");
             fwrite($fd,$img);
             fclose($fd);
             return $file;
